@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div>
+            <div class="container">
+                <div class="d-flex justify-content-between">
+                <div><h1>Dashboard</h1></div>
+                <div class="row">
+                    <div class="col p-3">
+                        <a href="add_user" style="color: black; " class="text-decoration-none text-center fs-6 fw-normal ">
+                            AddUser
+                        </a>
+                    </div>
+                    <div class="col p-3">
+                        <a href="add_task" style="color: black; " class="text-decoration-none text-center fs-6 fw-normal ">
+                            AddTask
+                        </a>
+                    </div>
+                    <div class="col p-3">
+                        <a href="manage_task" style="color: black; " class="text-decoration-none text-center fs-6 fw-normal ">
+                            manageTask
+                        </a>
+                    </div>
+                    <div class="col p-3">
+                        <a href="view_task" style="color: black; " class="text-decoration-none text-center fs-6 fw-normal ">
+                            viewTask
+                        </a>
+                    </div>
+                    <div class="col p-3">
+                        <a href="" style="color: black; " class="text-decoration-none text-center fs-6 fw-normal ">
+                            manageUser
+                        </a>
+                    </div>
+                    <div class="col p-3">
+                        <a href="" style="color: black; " class="text-decoration-none text-center fs-6 fw-normal ">
+                            viewUser
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </header>
+    
+
+    <table class="table">
+        <th>ID</th>
+        <th>Employee name</th>
+        <th>Task</th>
+        <th>status</th>
+       <th>update</th> 
+       <th>delete</th>
+
+
+        <% result.forEach(function(res) { %>
+            <tr>
+                <td><%= res.task_id%></td>
+                <td><%= res.u_name%></td>
+                <td><%= res.task%></td>
+                <td><% if(res.status==0) { %> Pending <% } else if(res.status==1) { %> Running <% } else if(res.status==2) { %> Completed <% } else { %>Decline<% } %></td>
+                <td><a href="update"<%= res.task_id %>>update</a></td>
+                <td><a href="delete"<%= res.task_id %>>delete</a></td>
+            </tr>
+        <% }); %>
+    </table>
+
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
